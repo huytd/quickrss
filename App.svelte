@@ -73,11 +73,11 @@ help you quickly read any RSS feeds right on the browser.
 
 To use, simply put the RSS feed URL in the query param, for example:
 
-    https://quickrss.now.sh/url?=https://news.ycombinator.com/rss
+    https://quickrss.now.sh/?url=https://news.ycombinator.com/rss
 
 You can even put multiple RSS feeds, each one separated by a comma:
 
-    https://quickrss.now.sh/url?=feed-1,feed-2,feed-3
+    https://quickrss.now.sh/?url=feed-1,feed-2,feed-3
 
 To avoid heavy load on the server, we saved the RSS data in your
 browser's localStorage for 5 minutes.
