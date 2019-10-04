@@ -56,14 +56,14 @@
 {#await loader}
 <p>Loading...</p>
 {:then feeds}
-<ul>
+<div class="container">
   {#each feeds as item, i}
-  <li class="news-item">
-    <div><a target="_blank" rel="noreferrer noopener" href={item.link}>{item.title}</a></div>
+  <a class="news-item" target="_blank" rel="noreferrer noopener" href={item.link}>
+    <div class="item-title">{item.title}</div>
     <div class="date-string">{getHost(item.link)} | {formatDate(item.date)}</div>
-  </li>
+  </a>
   {/each}
-</ul>
+</div>
 {:catch error}
 <pre>
 Hello! Welcome to QuickRSS!
@@ -88,17 +88,35 @@ browser's localStorage for 5 minutes.
 * { font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; }
 pre { font-family: monospace; }
 body { font-size: 14px; line-height: 20px; }
-ul {
-  list-style: none;
-  margin: 0; padding: 0;
+.container {
 }
-li {
+
+a.news-item {
+  display: block;
   padding: 15px 10px;
   border-bottom: 1px solid #eee;
+  text-decoration: none;
+  color: #000;
 }
+
+.item-title {
+  color: #2D6DF8;
+}
+
 .date-string {
   color: #888;
   margin-top: 5px;
   font-size: 0.8em;
 }
+
+a.news-item:hover .item-title {
+  opacity: 0.5;
+}
+a.news-item:visited .item-title {
+  color: #eee;
+}
+a.news-item:visited .date-string {
+  color: #eee;
+}
+
 </style>
